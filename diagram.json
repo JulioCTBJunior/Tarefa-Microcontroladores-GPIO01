@@ -1,0 +1,88 @@
+{
+    "version": 1,
+    "author": "Subgrupo02",
+    "editor": "wokwi",
+    "parts": [
+      {
+        "type": "board-pi-pico-w",
+        "id": "pico",
+        "top": 284.75,
+        "left": 281.95,
+        "attrs": { "builder": "pico-sdk" }
+      },
+      {
+        "type": "wokwi-led",
+        "id": "led1",
+        "top": 159.6,
+        "left": 109.4,
+        "attrs": { "color": "blue" }
+      },
+      {
+        "type": "wokwi-led",
+        "id": "led2",
+        "top": 111.6,
+        "left": 109.4,
+        "attrs": { "color": "green" }
+      },
+      {
+        "type": "wokwi-led",
+        "id": "led3",
+        "top": 217.2,
+        "left": 109.4,
+        "attrs": { "color": "red" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r1",
+        "top": 138.35,
+        "left": 38.4,
+        "attrs": { "value": "1000" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r2",
+        "top": 195.95,
+        "left": 38.4,
+        "attrs": { "value": "1000" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r3",
+        "top": 234.35,
+        "left": 38.4,
+        "attrs": { "value": "1000" }
+      },
+      {
+        "type": "wokwi-buzzer",
+        "id": "bz1",
+        "top": 136.8,
+        "left": 232.2,
+        "attrs": { "volume": "0.1" }
+      },
+      { "type": "wokwi-membrane-keypad", "id": "keypad1", "top": 497.2, "left": 188, "attrs": {} }
+    ],
+    "connections": [
+      [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+      [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+      [ "led1:C", "r2:2", "black", [ "v0" ] ],
+      [ "r1:1", "r2:1", "orange", [ "v0" ] ],
+      [ "r2:1", "r3:1", "orange", [ "v0" ] ],
+      [ "r3:1", "pico:GND.4", "orange", [ "v38.4", "h153.6", "v-105.6" ] ],
+      [ "led3:A", "pico:GP13", "red", [ "v0", "h48", "v-86.4" ] ],
+      [ "pico:GP21", "bz1:2", "red", [ "h38.71", "v-201.6" ] ],
+      [ "pico:GND.6", "bz1:1", "black", [ "h48.31", "v-182.4", "h-144" ] ],
+      [ "pico:GP11", "led2:A", "green", [ "h-86.4", "v-278.4" ] ],
+      [ "pico:GP12", "led1:A", "blue", [ "h-115.2", "v-239.96" ] ],
+      [ "led3:C", "r3:2", "black", [ "v0", "h-28.4" ] ],
+      [ "led2:C", "r1:2", "black", [ "v0", "h-28.4" ] ],
+      [ "pico:GP2", "keypad1:R1", "gold", [ "h-134.4", "v537.6", "h134.4" ] ],
+      [ "keypad1:C2", "pico:GP7", "black", [ "v38.4", "h-192", "v9.6" ] ],
+      [ "keypad1:R2", "pico:GP3", "gold", [ "v48", "h-173.2", "v-547.2", "h9.6" ] ],
+      [ "keypad1:R3", "pico:GP4", "gold", [ "v57.6", "h-201.9", "v-547.2", "h9.6" ] ],
+      [ "keypad1:C1", "pico:GP6", "black", [ "v67.2", "h-230.5", "v-470.4", "h0", "v-57.6" ] ],
+      [ "keypad1:R4", "pico:GP5", "gold", [ "v76.8", "h-230.6", "v-547.2", "h0", "v-9.6" ] ],
+      [ "keypad1:C3", "pico:GP8", "black", [ "v86.4", "h-268.95", "v-537.6" ] ],
+      [ "keypad1:C4", "pico:GP9", "black", [ "v96", "h-297.9", "v-566.4" ] ]
+    ],
+    "dependencies": {}
+  }
