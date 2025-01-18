@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/ATV01MiccrocontroladoresGPIO.uf2'
+elf = 'build/ATV01MiccrocontroladoresGPIO.elf'
