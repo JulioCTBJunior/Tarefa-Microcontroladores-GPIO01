@@ -64,50 +64,48 @@ char scan_keypad() {
 void handle_key_press(char key) {
     switch (key) {
         case '1':
-             // Acende o LED vermelho
-            
+            gpio_put(LED_RED, 1); // Acende o LED vermelho
+            break;
         case '2':
-             // Apaga o LED vermelho
-            
+            gpio_put(LED_RED, 0); // Apaga o LED vermelho
+            break;
         case '3':
-             gpio_put(LED_BLUE, 1); // acendendo LED Azul
-             break;            
+            gpio_put(LED_BLUE, 1); // Acende o LED azul
+            break;            
         case '4':
-             gpio_put(LED_BLUE, 0); // acendendo LED Azul
-             break;         
+            gpio_put(LED_BLUE, 0); // Apaga o LED azul
+            break;         
         case '5':
-             // Acende o LED verde
-            
+            gpio_put(LED_GREEN, 1); // Acende o LED verde
+            break;
         case '6':
-             // Apaga o LED verde
-            
+            gpio_put(LED_GREEN, 0); // Apaga o LED verde
+            break;
         case '7':
-             // Liga o buzzer
-            
+            gpio_put(BUZZER_PIN, 1); // Liga o buzzer
+            break;
         case '8':
-             // Desliga o buzzer
-            
-
+            gpio_put(BUZZER_PIN, 0); // Desliga o buzzer
+            break;
         case '#':
             gpio_put(LED_RED, 1);
             gpio_put(LED_GREEN, 1);
             gpio_put(LED_BLUE, 1);
             gpio_put(BUZZER_PIN, 1); // Acende todos os LEDs e liga o buzzer
             break;
-          
         case 'A':
-            // Acende o LED vermelho enquanto pressionado
-            
+            gpio_put(LED_RED, 1); // Acende o LED vermelho enquanto pressionado
+            break;
         case 'B':
-             // Acende o LED verde enquanto pressionado
-            
+            gpio_put(LED_GREEN, 1); // Acende o LED verde enquanto pressionado
+            break;
         case 'C':
-             gpio_put(LED_BLUE, 1); // acendendo LED Azul
-             break;
+            gpio_put(LED_BLUE, 1); // Acende o LED azul enquanto pressionado
+            break;
         case 'D':
             gpio_put(LED_RED, 1);
             gpio_put(LED_GREEN, 1);
-            gpio_put(LED_BLUE, 1);// Acende todos enquanto pressionado
+            gpio_put(LED_BLUE, 1); // Acende todos enquanto pressionado
             break;
         default:
             printf("Tecla não atribuída: %c\n", key);
@@ -118,13 +116,13 @@ void handle_key_press(char key) {
 void handle_key_release(char key) {
     switch (key) {
         case 'A':
-             // Apaga o LED vermelho ao soltar
-            
+            gpio_put(LED_RED, 0); // Apaga o LED vermelho ao soltar
+            break;
         case 'B':
-             // Apaga o LED verde ao soltar
-            
+            gpio_put(LED_GREEN, 0); // Apaga o LED verde ao soltar
+            break;
         case 'C':
-            gpio_put(LED_BLUE, 0); // acendendo LED Azul
+            gpio_put(LED_BLUE, 0); // Apaga o LED azul ao soltar
             break;            
         case 'D':
             gpio_put(LED_RED, 0);
@@ -135,12 +133,13 @@ void handle_key_release(char key) {
             gpio_put(LED_RED, 0);
             gpio_put(LED_GREEN, 0);
             gpio_put(LED_BLUE, 0);
-            gpio_put(BUZZER_PIN, 0);// Apaga todos os LEDs e desliga o buzzer
+            gpio_put(BUZZER_PIN, 0); // Apaga todos os LEDs e desliga o buzzer
             break;
         default:
             break;
     }
 }
+
 
 int main() {
     stdio_init_all();
