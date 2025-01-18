@@ -63,11 +63,11 @@ char scan_keypad() {
 void handle_key_press(char key) {
     switch (key) {
         case '1':
-             // Acende o LED vermelho
-            
+            gpio_put(LED_GREEN, 1); // Acende o LED verde
+            break;
         case '2':
-             // Apaga o LED vermelho
-            
+            gpio_put(LED_GREEN, 0);// Apaga o LED verde
+            break;
         case '3':
              gpio_put(LED_BLUE, 1); // acendendo LED Azul
              break;            
@@ -75,11 +75,11 @@ void handle_key_press(char key) {
              gpio_put(LED_BLUE, 0); // acendendo LED Azul
              break;         
         case '5':
-             // Acende o LED verde
-            
+            // Acende o LED vermelha
+
         case '6':
-             // Apaga o LED verde
-            
+             // Apaga o LED vermelha
+            break;
         case '7':
              // Liga o buzzer
             
@@ -95,14 +95,13 @@ void handle_key_press(char key) {
             break;
           
         case 'A':
-            // Acende o LED vermelho enquanto pressionado
-            
+            gpio_put(LED_GREEN, 1); // Acende o LED verde enquanto pressionado
+            break;
         case 'B':
-             // Acende o LED verde enquanto pressionado
-            
+            gpio_put(LED_BLUE, 1); // acendendo LED Azul
+            break;
         case 'C':
-             gpio_put(LED_BLUE, 1); // acendendo LED Azul
-             break;
+            // Acende o LED vermelho enquanto pressionado
         case 'D':
             gpio_put(LED_RED, 1);
             gpio_put(LED_GREEN, 1);
@@ -117,14 +116,13 @@ void handle_key_press(char key) {
 void handle_key_release(char key) {
     switch (key) {
         case 'A':
-             // Apaga o LED vermelho ao soltar
-            
+            gpio_put(LED_GREEN, 0);// Apaga o LED verde ao soltar
+            break;
         case 'B':
-             // Apaga o LED verde ao soltar
-            
-        case 'C':
             gpio_put(LED_BLUE, 0); // acendendo LED Azul
-            break;            
+            break;
+        case 'C':
+            // Apaga o LED vermelho ao soltar            
         case 'D':
             gpio_put(LED_RED, 0);
             gpio_put(LED_GREEN, 0);
