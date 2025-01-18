@@ -7,9 +7,9 @@
 uint8_t row_pins[ROWS] = {2, 3, 4, 5};  
 uint8_t col_pins[COLS] = {6, 7, 8, 9};  
 
-#define LED_RED 11
-#define LED_GREEN 12
-#define LED_BLUE 13
+#define LED_RED 13
+#define LED_GREEN 11
+#define LED_BLUE 12
 #define BUZZER_PIN 21
 
 const char keys[ROWS][COLS] = {
