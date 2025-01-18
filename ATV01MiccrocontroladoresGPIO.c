@@ -7,6 +7,7 @@
 uint8_t row_pins[ROWS] = {16, 17, 28, 18};  
 uint8_t col_pins[COLS] = {19, 20, 4, 9};  
 
+
 #define LED_GREEN 11
 #define LED_BLUE 12  
 #define LED_RED 13                         
@@ -20,6 +21,7 @@ const char keys[ROWS][COLS] = {
 };
 
 void init_gpio() {
+   
     for (int i = 0; i < ROWS; i++) {
         gpio_init(row_pins[i]);
         gpio_set_dir(row_pins[i], GPIO_OUT);
@@ -39,6 +41,7 @@ void init_gpio() {
         gpio_put(led_pins[i], 0);
     }
 
+    
     gpio_init(BUZZER_PIN);
     gpio_set_dir(BUZZER_PIN, GPIO_OUT);
     gpio_put(BUZZER_PIN, 0); 
@@ -137,11 +140,12 @@ void handle_key_release(char key) {
     }
 }
 
+
 int main() {
     stdio_init_all();
     init_gpio();
 
-    char last_key = 0;
+    char last_key = 0; // Variável para armazenar a última tecla pressionada
 
     while (1) {
         char key = scan_keypad();
@@ -156,7 +160,5 @@ int main() {
             handle_key_release(last_key);
             last_key = 0; 
         }
-
-        sleep_ms(50); // Debounce
     }
 }
