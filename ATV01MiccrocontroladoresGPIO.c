@@ -87,6 +87,11 @@ void handle_key_press(char key) {
         case '8':
             gpio_put(BUZZER_PIN, 0); // Desliga o buzzer
             break;
+        case '9':
+            gpio_put(BUZZER_PIN, 1); 
+            sleep_ms(2000);
+            gpio_put(BUZZER_PIN, 0);
+            break;
         case '#':
             gpio_put(LED_RED, 1);
             gpio_put(LED_GREEN, 1);
