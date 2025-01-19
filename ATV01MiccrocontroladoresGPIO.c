@@ -33,7 +33,7 @@ void init_gpio() {
         gpio_pull_up(col_pins[i]);
     }
 
-    uint8_t led_pins[] = {LED_RED, LED_GREEN, LED_BLUE};
+    uint8_t led_pins[] = { LED_GREEN, LED_BLUE, LED_RED};
     for (int i = 0; i < 3; i++) {
         gpio_init(led_pins[i]);
         gpio_set_dir(led_pins[i], GPIO_OUT);
@@ -86,6 +86,11 @@ void handle_key_press(char key) {
         case '8':
             gpio_put(BUZZER_PIN, 0); // Desliga o buzzer
             break;
+        case '9':
+            gpio_put(BUZZER_PIN, 1); 
+            sleep_ms(2000);
+            gpio_put(BUZZER_PIN, 0);
+            break;
         case '#':
             gpio_put(LED_RED, 1);
             gpio_put(LED_GREEN, 1);
@@ -125,7 +130,7 @@ void handle_key_release(char key) {
         case 'D':
             gpio_put(LED_RED, 0);
             gpio_put(LED_GREEN, 0);
-            gpio_put(LED_BLUE, 0); // Apaga todos ao soltar
+            gpio_put(LED_BLUE, 0); // Apaga todos os LEDs ao soltar
             break;
         case '*':
             gpio_put(LED_RED, 0);
@@ -139,24 +144,27 @@ void handle_key_release(char key) {
 }
 
 
+
 int main() {
     stdio_init_all();
     init_gpio();
 
-    char last_key = 0; // Variável para armazenar a última tecla pressionada
+    char last_key = 0;
 
     while (1) {
         char key = scan_keypad();
 
-        if (key && key != last_key) { 
+        if (key && key != last_key) { // Nova tecla pressionada
             printf("Tecla pressionada: %c\n", key);
             handle_key_press(key);
             last_key = key;
         }
 
-        if (!key && last_key) { 
+        if (!key && last_key) { // Tecla liberada
             handle_key_release(last_key);
-            last_key = 0; 
+            last_key = 0;
         }
+
+        sleep_ms(50); // Debounce para evitar múltiplas leituras
     }
 }
