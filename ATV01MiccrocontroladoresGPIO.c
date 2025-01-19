@@ -50,7 +50,6 @@ char scan_keypad() {
         gpio_put(row_pins[row], 0); // Ativa a linha atual (LOW)
        
         for (int col = 0; col < COLS; col++) {
-            printf("Varrendo coluna %d (GPIO%d)\n", col, col_pins[col]);
             if (gpio_get(col_pins[col]) == 0) { // Verifica se a coluna está LOW
                
                 gpio_put(row_pins[row], 1); // Desativa a linha antes de retornar
