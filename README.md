@@ -59,3 +59,5 @@ O programa exibirá uma mensagem informando que a tecla pressionada não está a
 
 Disponível em: https://wokwi.com/projects/420431144433395713
 
+Video Wokwi : https://youtu.be/qK0MlYYEsK4
+
