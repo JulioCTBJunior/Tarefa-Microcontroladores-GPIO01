@@ -61,3 +61,19 @@ Disponível em: https://wokwi.com/projects/420431144433395713
 
 Video Wokwi : https://youtu.be/qK0MlYYEsK4
 
+Participação de:
+
+Julio Cesar Tertuliano;
+
+Hercules ;
+
+Ariel Fernando ;
+
+Cintia Conceição;
+
+Danilo Lacerda;
+
+Tarcio Santos; 
+
+Pedro Gabriel;
+
